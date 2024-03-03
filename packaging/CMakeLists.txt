@@ -1,7 +1,7 @@
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
-set(SQLITE_ORM_INSTALL_CMAKEDIR ${CMAKE_INSTALL_LIBDIR}/cmake/SqliteOrm CACHE STRING "Path to SqliteOrm cmake files")
+set(SQLITE_ORM_INSTALL_CMAKEDIR ${CMAKE_INSTALL_CMAKEDIR}/SqliteOrm CACHE STRING "Path to SqliteOrm cmake files")
 
 configure_file(${PROJECT_SOURCE_DIR}/cmake/SqliteOrmConfig.cmake.in SqliteOrmConfig.cmake @ONLY)
 
@@ -16,12 +16,12 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/SqliteOrmConfig.cmake
 
 install(TARGETS sqlite_orm 
 	EXPORT SqliteOrmTargets
-	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} 
+	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
         COMPONENT sqlite_orm_runtime
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}             
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT          sqlite_orm_runtime           
     	NAMELINK_COMPONENT sqlite_orm_development   
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}           
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT   sqlite_orm_development 
 	INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )

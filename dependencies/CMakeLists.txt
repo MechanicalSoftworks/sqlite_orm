@@ -23,6 +23,3 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING)
     # CMake <3.24: exposes targets only locally, but caches them. So call FetchContent_MakeAvailable again in the directory of usage
     FetchContent_MakeAvailable(Catch2)
 endif()
-
-# CMake <3.24: exposes targets only locally, but caches them. So call find_package again in the directory of usage
-find_package(SQLite3 REQUIRED)
